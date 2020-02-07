@@ -7,7 +7,8 @@ import {
   MatInputModule,
   MatSelectModule,
   MatTabsModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatCardModule
 } from '@angular/material';
 
 const MaterialComponents = [MatButtonModule];
@@ -22,7 +23,8 @@ const MaterialComponents = [MatButtonModule];
     MatDatepickerModule,
     MatNativeDateModule,
     MatTabsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatCardModule
   ],
   exports:[MaterialComponents,
     MatDatepickerModule,
@@ -33,7 +35,8 @@ const MaterialComponents = [MatButtonModule];
     MatDatepickerModule,
     MatNativeDateModule,
     MatTabsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatCardModule
   ]
 })
 export class MaterialModule { }

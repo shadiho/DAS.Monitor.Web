@@ -39,7 +39,7 @@ export class DASAppointmentLogComponent implements OnInit {
     this.appointmentopLogs = [];
     return throwError(error);
   }
-
+ 
   setErrorClass(){
     let classes ={
       error:this.isError,

@@ -19,8 +19,16 @@
 }
 .bookContainer{
     background-color: #ccffb3;
-   
 }
 .cancelContainer{
     background-color: #ffad99;
+}
+.cancelBtnHdn{
+    display: none;
+}
+.myCardStyle{
+    margin-bottom: 0.4rem;
+}
+.hiddenCard{
+    display: none;
 }

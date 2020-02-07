@@ -1,15 +1,23 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input,Directive,ViewChild, ElementRef, AfterViewInit  } from '@angular/core';
 import {AppointmentOpLog} from '../../models/Appointment-op-log';
+import { DasSimulatorService } from '../../services/das-simulator.service';
+import {MatSnackBar} from '@angular/material';
+import {Appointment} from '../../models/Appointment';
+import { TimeoutError } from 'rxjs';
 @Component({
   selector: 'app-dasappointment-op-log-item',
   templateUrl: './dasappointment-op-log-item.component.html',
   styleUrls: ['./dasappointment-op-log-item.component.css']
 })
+
 export class DASAppointmentOpLogItemComponent implements OnInit {
 
-  @Input() opLog1:AppointmentOpLog
-  constructor() { }
+  @Input() opLog1:AppointmentOpLog;
+  constructor(private dasSimulatorService:DasSimulatorService, private _snackBar: MatSnackBar,
+    private elem: ElementRef) { }
 
+  isDeleted:boolean=false;
+  
   ngOnInit() {
   }
 
@@ -30,6 +38,46 @@ export class DASAppointmentOpLogItemComponent implements OnInit {
       cancel: this.opLog1.operation == "cancel"
     }
     return classes;
+  }
+  setButtonClass(){
+    let classes={
+      cancelBtnHdn: this.opLog1.operation != ""
+    }
+    return classes;
+  }
+  openError(message:string,action:string='Error'){
+    //let action:string ='';
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
+  onClickCancelAppointmentBtn(appointmentOpLogComponenet){
+    console.log('Canceling;;;;;;;;;');
+    console.log(appointmentOpLogComponenet);
+    appointmentOpLogComponenet.destroy();
+    console.log('Canceling;;;;;;;;;');
+    let appointment:Appointment = new Appointment();
+    appointment.appointmentID = this.opLog1.appointmentID;
+    appointment.creationDateTime = this.opLog1.creationDateTime;
+    appointment.doctorId = this.opLog1.doctorID;
+    appointment.patientId = this.opLog1.patientID;
+    this.dasSimulatorService.cancelAppointment(appointment).subscribe(succss=>{
+      console.log('success');
+      
+      this.openError('Appointment has been deleted successfully','Success');
+    }, error=>{
+      this.openError('Error');
+    });
+
+  }
+  setCardClass(){
+    let classes ={
+      hiddenCard: this.isDeleted
+    }
+    return classes;
+  }
+  destroy(){
+    this.isDeleted = true;
   }
 
 }

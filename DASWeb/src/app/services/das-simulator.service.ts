@@ -14,16 +14,13 @@ const httpOptions={
 export class DasSimulatorService {
   appointment:Appointment;
   appointmentCreationSrvUrl:string = 'http://localhost:5000/api/v1/appointments/Book';
+  appointmentCancelationSrvUrl:string = 'http://localhost:5000/api/v1/appointments/Cancel';
   constructor(private http:HttpClient) { }
   createAppointment(appointment:Appointment):Observable<any>{
-    console.log('booking appointment........');
-    console.log(appointment.appointmentID);
-    console.log(appointment.creationDateTime);
-    console.log(appointment.doctorId);
-    console.log(appointment.fromDate);
-    console.log(appointment.patientId);
-    console.log(appointment.toDate);
-    
     return this.http.post(this.appointmentCreationSrvUrl,appointment,httpOptions);
+  }
+  cancelAppointment(appointment:Appointment):Observable<any>{
+    
+    return this.http.post(this.appointmentCancelationSrvUrl,appointment,httpOptions);
   }
 }

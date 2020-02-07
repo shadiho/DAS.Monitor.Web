@@ -8,4 +8,6 @@ export class AppointmentOpLog{
     creationDateTime:Date;
     operation:string;
     logDateTime:Date;
+    doctorID:string;
+    patientID:string;
 }

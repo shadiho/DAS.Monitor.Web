@@ -12,13 +12,17 @@ import { TabModule } from 'angular-tabs-component';
 import {DropdownModule} from 'angular-dropdown-component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { DasappointmentComponent } from './components/dasappointment/dasappointment.component';
+import { DasappointmentsListComponent } from './components/dasappointments-list/dasappointments-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DASTesterComponent,
     DASAppointmentLogComponent,
-    DASAppointmentOpLogItemComponent
+    DASAppointmentOpLogItemComponent,
+    DasappointmentComponent,
+    DasappointmentsListComponent
   ],
   imports: [
     BrowserModule,
