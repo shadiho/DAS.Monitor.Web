@@ -37,10 +37,7 @@ export class DasappointmentsListComponent implements OnInit {
   }
 
   onClickSearchAppointmentBtn(){
-    if (!this.selectedDocotrID && !this.selectedPatientID ){
-      this.openError('Please select one of the search parameters');
-      return;
-    }
+   
     this.dasAppointmentService.getAppointmentsList(this.selectedDocotrID,this.selectedPatientID).subscribe(
       appointmentOpLogs=>{
         this.appointmentsOpLogs = [];

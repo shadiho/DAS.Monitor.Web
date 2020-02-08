@@ -14,7 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { DasappointmentComponent } from './components/dasappointment/dasappointment.component';
 import { DasappointmentsListComponent } from './components/dasappointments-list/dasappointments-list.component';
-
+import { DasAppointmentsConflictItemComponent } from './components/das-appointments-conflict-item/das-appointments-conflict-item.component';
+import { DasAppointmentsConflictListComponent } from './components/das-appointments-conflict-list/das-appointments-conflict-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,9 @@ import { DasappointmentsListComponent } from './components/dasappointments-list/
     DASAppointmentLogComponent,
     DASAppointmentOpLogItemComponent,
     DasappointmentComponent,
-    DasappointmentsListComponent
+    DasappointmentsListComponent,
+    DasAppointmentsConflictItemComponent,
+    DasAppointmentsConflictListComponent
   ],
   imports: [
     BrowserModule,

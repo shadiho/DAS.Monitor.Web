@@ -52,18 +52,13 @@ export class DASAppointmentOpLogItemComponent implements OnInit {
     });
   }
   onClickCancelAppointmentBtn(appointmentOpLogComponenet){
-    console.log('Canceling;;;;;;;;;');
-    console.log(appointmentOpLogComponenet);
     appointmentOpLogComponenet.destroy();
-    console.log('Canceling;;;;;;;;;');
     let appointment:Appointment = new Appointment();
     appointment.appointmentID = this.opLog1.appointmentID;
     appointment.creationDateTime = this.opLog1.creationDateTime;
     appointment.doctorId = this.opLog1.doctorID;
     appointment.patientId = this.opLog1.patientID;
     this.dasSimulatorService.cancelAppointment(appointment).subscribe(succss=>{
-      console.log('success');
-      
       this.openError('Appointment has been deleted successfully','Success');
     }, error=>{
       this.openError('Error');

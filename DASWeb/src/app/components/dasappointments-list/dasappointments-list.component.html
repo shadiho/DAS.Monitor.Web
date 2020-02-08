@@ -3,6 +3,7 @@
     <mat-form-field>
         <mat-label>Doctor Name</mat-label>
         <mat-select [(value)]="selectedDocotrID">
+            <mat-option></mat-option>
             <mat-option *ngFor="let doc of Doctors" [value] = "doc.doctorId">{{doc.doctorName}}</mat-option>
         </mat-select>
     </mat-form-field>
@@ -11,6 +12,7 @@
     <mat-form-field>
         <mat-label>Patient Name</mat-label>
         <mat-select [(value)]="selectedPatientID" >
+            <mat-option></mat-option>
             <mat-option *ngFor="let pat of Patients" [value] = "pat.patientId">{{pat.patientName}}</mat-option>
         </mat-select>
     </mat-form-field>

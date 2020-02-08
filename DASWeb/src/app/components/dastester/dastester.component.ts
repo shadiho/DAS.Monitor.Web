@@ -55,6 +55,23 @@ export class DASTesterComponent implements OnInit {
       duration: 2000,
     });
   }
+
+  onClickResetBtn(){
+    console.log('Reset Clicked');
+    this.dasSimulatorService.resetMonitorApp().subscribe(out=>{
+      console.log('DONE');
+      
+    },error =>{
+      console.log('Error..............');
+    });
+   this.dasSimulatorService.resetCoreApp().subscribe(out=>{
+      console.log('DONE');
+      
+    },error =>{
+      console.log('Error..............');
+    });
+     this.openError('Database has been reset','');
+  }
   onClickAddAppointmentBtn(){
     if (!this.selectedDocotrID){
       this.openError('Please select the Dcotor');
